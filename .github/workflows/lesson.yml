@@ -4,6 +4,7 @@ on:
     branches: gh-pages
   pull_request:
 jobs:
+  runs-on: ubuntu-latest
   build-lesson:
     env:
       RSPM: 'https://packagemanager.rstudio.com/cran/__linux__/bionic/latest'
