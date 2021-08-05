@@ -114,5 +114,11 @@ jobs:
             eval sudo $cmd
           done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
 
+      - name: Check spelling
+        uses: codespell-project/actions-codespell@master
+        with:
+          skip: bin
+          ignore_words_list: rouge
+
       - run: make site
         working-directory: lesson
