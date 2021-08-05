@@ -34,7 +34,6 @@ jobs:
 
       - name: Look for R-markdown files
         id: check-rmd
-        working-directory: lesson
         run: |
           echo "::set-output name=count::$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})"
 
