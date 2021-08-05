@@ -6,11 +6,12 @@ on:
 jobs:
   build-lesson:
     runs-on: ubuntu-latest
-    env:
-      RSPM: 'https://packagemanager.rstudio.com/cran/__linux__/bionic/latest'
     steps:
+      - name: Checkout the lesson
+        uses: actions/checkout@master
+
       - name: Set up Ruby
-        uses: actions/setup-ruby@main
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.1'
 
@@ -30,9 +31,6 @@ jobs:
           elif [[ $RUNNER_OS == Windows ]]; then
             python -m pip install --upgrade pip setuptools wheel pyyaml==5.3.1 requests
           fi
-
-      - name: Checkout the lesson
-        uses: actions/checkout@master
 
       - name: Look for R-markdown files
         id: check-rmd
